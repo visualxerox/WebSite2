@@ -1,0 +1,438 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'open sans';
+
+}
+
+.contenedor {
+    /*por eso se usa la clase contenedor en toda lka pagina*/
+    padding: 60px 0;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    /*para centrar los elementos y overflow, para que si se sale algo lo esconda*/
+    overflow: hidden;
+}
+
+.titulo {
+    color: #642a73;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 60px;
+    /*para distinguir el contenido de cada seccion*/
+}
+
+/* Header */
+
+header {
+    width: 100%;
+    height: 600px;
+    background: #bc4e9c;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, hsla(340, 95%, 50%, 0.459), hsla(317, 45%, 52%, 0.664)), url(./img/portada.jpg);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, hsla(340, 95%, 50%, 0.459), hsla(317, 45%, 52%, 0.664)), url(./img/portada.jpg);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-size: cover;  /*Escala la imagen al mayor tamaño posible sin estirarla. Si las proporciones de la imagen difieren de las del elemento, es recortada vertical u horizontalmente para que no quede un espacio vacío.*/
+    background-attachment: fixed; /*Si fixed es especificado, la imagen de fondo estará fija en la pantalla y no se moverá con el bloque contenedor.*/
+    position: relative;
+}
+
+nav{
+    text-align: right;
+    padding: 30px 50px 0 0;
+}
+
+nav > a{
+    color: #fff;
+    font-weight: 300;
+    text-decoration: none;
+    margin-right: 10px;  /*separa un elemnto del otro*/
+}
+
+nav > a:hover {
+    text-decoration: underline; /*pinta una linea de cada menu cada vez que se pasa el mouse sobre el menu*/
+   
+}
+
+header .textos-header{
+    display: flex;
+    height: 430px;
+    width: 100%;
+    align-items: center;  /*centrar elemetos verticalmente*/
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.textos-header h1{
+    font-size: 50px;
+    color: #fff;
+}
+
+.textos-header h2{
+    font-size: 30px;
+    font-weight: 300;
+    color: #fff;
+}
+
+/*para acomodar el efecto de ola en la parte de abajo del contenedor*/ 
+.wave{
+    position: absolute;
+    bottom: 0; /*Para los elementos con una posición absoluta (aquellos que tienen la propiedad position: absolute o position: fixed), la propiedad bottom determina la distancia entre el borde inferior del elemento y el borde inferior de su bloque contenedor.*/
+    width: 100%;
+}
+
+/* About us -Sobre nosotros*/
+
+main .sobre-nosotros{
+    padding: 30px 0 60px 0;
+}
+
+.contenedor-sobre-nosotros{
+    display: flex;
+    justify-content: space-evenly; /*reparta el espacio equitativamente*/
+}
+
+.imagen-about-us{
+    width: 48%;
+}
+
+.sobre-nosotros .contenido textos{
+    width: 48%;
+}
+
+.contenido-textos h3{
+    margin-bottom: 15px;
+}
+
+.contenido-textos h3 span{
+    background: #4d0686;
+    color: #fff;
+    border-radius: 50%; /*para que sea un circulo*/
+    display: inline-block;  /*para que tenga propiedad de bloque*/
+    text-align: center;
+    width: 30px;
+    height: 30px; /*con el width y el heigth se hace el circulo*/
+    padding: 2px; /*para centrar bien el span en el circulo*/
+    box-shadow: 0 0 6px 0 rgba(0,0,0, .5);  /*para hacer la sombra*/
+    margin-right: 5px;
+}
+
+.contenido-textos p{
+    padding: 0px 0px 30px 15px;
+    font-weight: 300;
+    text-align: justify;
+}
+
+/* GALERIA */
+
+.portafolio{
+    background: #f2f2f2;
+}
+
+.galeria-port{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.imagen-port{
+    width: 24%;
+    margin-bottom: 10px;
+    /* height: 180px; */
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    box-shadow:0 0 6px 0 rgba(0,0, 0, 0.5);
+}
+
+.imagen-port >img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /*object-fit especifica como el contenido de un elemento remplazado debería adaptarse según el alto y ancho de su contenedor . cover
+    El contenido reemplazado se dimensiona para mantener su relación de aspecto mientras llena el cuadro de contenido completo del elemento. Si la relación de aspecto del objeto no coincide con la relación de aspecto de su caja, entonces el objeto se recortará para que se ajuste.*/
+    display: block;
+}
+
+.hover-galeria{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    transform: scale(0);
+    background: hsla(273,91%,27%,  0.7);
+    transition: transform .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hover-galeria img{
+    width: 50px;
+}
+
+.hover-galeria p{
+    color: #fff;
+}
+
+.imagen-port:hover .hover-galeria{
+    transform: scale(1);
+}
+
+/* Clientes */
+
+.cards{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.cards .card{
+    background: #4d0686;
+    display: flex;
+    width: 46%;
+    height: 200px;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    box-shadow: 0 0 6px 0 rgba(0,0, 0, 0.6);
+}
+
+.cards .card img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;  /*para evitar que se distorcione*/
+    border: 3px solid #fff; /*el marco de la imagen*/
+    border-radius: 50%;
+    display: block;
+}
+
+.cards .card > .contenido-texto-card{
+    width: 60%;
+    color: #fff;
+}
+
+.cards .card > .contenido-texto-card p{
+    font-weight: 300;
+    padding-top: 5px;
+}
+
+/* Our team */
+
+.about-services{
+    background: #f2f2f2;
+    padding-bottom: 30px;  /*para que se vea mas largo de abajo*/
+
+}
+
+.servicio-cont{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.servicio-ind{
+    width: 28%;
+    text-align: center;
+}
+
+.servicio-ind img{
+    width: 90%;
+}
+
+.servicio-ind h3{
+    margin: 10px 0;
+}
+
+.servicio-ind p{
+    font-weight: 300;
+    text-align: justify;
+}
+
+/* FOOTER */
+
+footer{
+    background: #414141;
+    padding: 60px 0 30px 0;
+    margin: auto; /*para centrar todo*/
+    overflow: hidden; /*para que nada salga */
+}
+
+.contenedor-footer{
+    display: flex;
+    width: 90%;
+    justify-content: space-evenly;
+    margin: auto;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #ccc; /*para eso se le da el pappdin para que no quede la linea muy junta*/
+}
+
+.content-foo{
+    text-align: center;
+}
+
+.content-foo h4{
+    color: #fff;
+    border-bottom: 3px solid #af20d3;
+    padding-bottom: 5px; /*para poder agregar el margen y se queden juntos*/
+    margin-bottom: 10px; /*para separarlos*/
+}
+
+.content-foo p{
+    color: #ccc;
+}
+
+.titulo-final{
+    text-align: center;
+    font-size: 24px;
+    margin: 20px 0 0 0;
+    color: #9e9797;
+}
+
+/*RESPONSIVE*/
+/*500 * 585*/
+
+@media screen and (max-width:900px){
+    header{
+        background-position: center;
+    }
+
+    .contenedor-sobre-nosotros{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sobre-nosotros .contenido-textos{
+        width: 90%;
+    }
+
+    .imagen-about-us{
+        width: 90%;
+    }
+
+    /*Galeria*/
+    .imagen-port{
+        width: 44%;
+    }
+
+    /*Clientes*/
+    .cards{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cards .card{
+        width: 90%; /*para que cada card mida 90%*/
+    }
+
+    .cards .card:first-child{
+        margin-bottom: 30px; /*esto es para hacer la sepacion de la primera card y no este jumto a la otra, se una firts child, es decir el primer elemento para no afectar el paddin de la segunda card*/
+    }
+
+    /*SERVICIOS*/
+
+    .servicio-cont{
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .servicio-ind{
+        width: 100%;
+        text-align: center;
+    }
+
+    .servicio-ind:nth-child(1), .servicio-ind:nth-child(2){
+        margin-bottom: 60px; /*para dar espacio en la imagen 1 de la 2 y de la  3, por eso se le da el margin a la imagen 1 y la imagen 2*/
+    } 
+
+    .servicio-ind img{
+        width: 90%;
+    }
+}
+
+/*RESPONSIVE*/
+/*250 *558*/
+
+@media screen and (max-width:500px){
+    nav{
+        text-align: center;
+        padding: 30px 0 0 0 ;
+    }
+
+    nav > a{
+        margin-right: 5px;
+    }
+
+    .textos-header h1{
+        font-size: 35px;
+    }
+
+    .textos-header h2{
+        font-size: 20px;
+    }
+
+    /*ABOUT US*/
+
+    .imagen-about-us{
+        margin-bottom: 60px;
+        width: 99%;
+    }
+
+    .sobre-nosotros .contenido-textos{
+        width: 95%;
+    }
+
+    /*GALERIA*/
+
+    .imagen-port{
+        width: 95%;
+    }
+
+    /*CLIENTS*/
+
+    .cards .card{
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cards .card img{
+        width: 90px;
+        height: 90px;
+    }
+
+    /*FOOTER*/
+
+    .contenedor-footer{
+        flex-direction: column;
+        border: none;
+    }
+
+    .content-foo{
+        margin-bottom: 20px; /*para dar espacio entre cada uno*/
+        text-align: center;
+    }
+
+    .content-foo h4{
+        border: none; /*para quitar las lineas moradas*/
+    }
+
+    .content-foo p{
+        color: #ccc;
+        border-bottom: 1px solid #f2f2f2;
+        padding-bottom: 20px; /*para que no se pegue el borde al elemento*/
+    }
+
+    .titulo-final{
+        font-size: 25px;
+    }
+}
